@@ -1,0 +1,57 @@
+@use "../../styles/variables" as variable;
+
+.title {
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: variable.$color-title;
+  text-wrap: balance;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  list-style: none;
+}
+
+.navigationButtons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  margin: 8px;
+  padding: 2px;
+  border: 1px solid #151515;
+  border-radius: 5px;
+  color: #161616;
+  cursor: pointer;
+
+  @media screen and (min-width: variable.$width-lg) {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
+}
+
+.navigationButtons a:hover {
+  position: relative;
+  top: -2px;
+  box-shadow: 0 0 2px 0 variable.$color-box-shadow;
+}
+
+.navigationActive a {
+  color: white;
+  background-color: variable.$color-pag-btn-active;
+  border-color: variable.$color-pag-btn-active;
+}
+
+.navigationDisabled a {
+  color: grey;
+  background-color: grey;
+}
