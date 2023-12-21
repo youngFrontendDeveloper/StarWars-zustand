@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+ul, ol, li {
+  list-style: none;
+}
+
 html {
   height: 100%;
   overflow-y: scroll;
@@ -35,7 +39,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1080px;
+  max-width: variable.$width-lg;
   height: 100%;
   margin: 0 auto;
   padding-left: 20px;
@@ -68,6 +72,19 @@ body {
   width: 100%;
   margin-bottom: 30px;
   color: variable.$color-red;
+}
+
+.title {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  color: variable.$color-title;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 22px;
+  color: variable.$color-subtitle;
 }
 
 

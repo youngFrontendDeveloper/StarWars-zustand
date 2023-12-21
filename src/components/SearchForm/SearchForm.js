@@ -7,38 +7,16 @@ import { usePeopleStore } from "../../store/store";
 
 
 export default function SearchForm() {
-
-  const [ nothingFound, setNothingFound ] = useState( false );
   const [ isShowResults, setShowResults ] = useState( false );
-  const { register, handleSubmit, getValues, setValue, formState: { errors } } = useForm( {
+  const { register, handleSubmit, getValues, resetField, formState: { errors } } = useForm( {
     mode: "onTouched",
   } );
-  const {fetchFoundPeople } = usePeopleStore();
-
+  const { fetchFoundPeople } = usePeopleStore();
 
   const onSubmit = async() => {
     const value = getValues().search;
     setShowResults( true );
-    // const result = people.filter( item => {
-    //
-    //   return item.name.toLowerCase().includes( value.toLowerCase() );
-    // } );
-    //
-    // console.log( result );
-
-    // if( result.length === 0 ) {
-    //   // setShowResults( false );
-    //   setNothingFound( true );
-    //   setValue( "search", "" );
-    //   foundPersons( result );
-    //
-    //   return;
-    // }
-
     fetchFoundPeople( value );
-    // foundPersons(result)
-    // setValue( "search", "" );
-
   };
 
   return (
@@ -64,13 +42,16 @@ export default function SearchForm() {
             ) }
 
           />
+          <span
+            onClick={ () => resetField("search", { keepDirty: true }) } className={ styles[ "search-form__close" ] }
+          />
         </div>
         { errors.search && <p className={ styles[ "search-form--error" ] }>{ errors.search.message }</p> }
         <Button text="Искать" />
 
       </form>
       {
-        isShowResults && <FoundedResult nothingFound={ nothingFound } />
+        isShowResults && <FoundedResult />
       }
     </div>
   );

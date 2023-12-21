@@ -21,15 +21,17 @@ export interface IPeopleStore {
     foundedPersons: IPerson[];
     count: number;
     isLoading: boolean;
+    isSearchLoading: boolean;
     errors: string | undefined;
+    searchErrors:string | undefined;
     fetchPeople: (n: number) => void;
     fetchPersonById: (id: number) => void;
     fetchFoundPeople: (name: string) => void;
 }
-
-export interface IPagination {
-    changePageNo: (number: number) => void;
-    amountOfData: number;
-    dataPerPage: number;
-    currentPage: number;
-}
+//
+// export interface IPagination {
+//     changePageNo: (number: number) => void;
+//     amountOfData: number;
+//     dataPerPage: number;
+//     currentPage: number;
+// }

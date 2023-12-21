@@ -1,0 +1,23 @@
+@use "../../styles/variables" as variable;
+
+.people__item {
+  margin-bottom: 20px;
+  padding-left: 35px;
+
+  &::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    //background-image: url("./images/check-icon.svg");
+  }
+}
+
+.people__link {
+  color: inherit;
+  font-size: 20px;
+  text-decoration: none;
+
+  &:hover {
+    color: variable.$color-link-hover;
+  }
+}

@@ -1,0 +1,55 @@
+@use "../../styles/variables" as variable;
+
+.person {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid variable.$color-link-hover;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 0px variable.$color-box-shadow;
+
+  @media screen and (min-width: variable.$width-md){
+    padding: 30px;
+  }
+}
+
+.person__link {
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: variable.$color-text;
+  font-weight: 600;
+
+  &:hover {
+    color: variable.$color-link-hover;
+  }
+}
+
+.person__title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.person__list{}
+
+.person__item {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.person__span {
+  //display: inline-block;
+  margin-right: 15px;
+  font-weight: 600;
+}
+
+.person__subitem {
+  margin-left: 20px;
+  margin-bottom: 15px;
+
+  &::before{
+    content: "-";
+    margin-right: 7px;
+  }
+}

@@ -1,5 +1,5 @@
 import styles from "./People.module.scss"
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {usePeopleStore} from "../../store/store";
 import Loading from "../Loading/Loading";
 import PersonCard from "../PersonCard/PersonCard";
@@ -10,7 +10,10 @@ export default function People() {
     const [windowSize, setWindowSize] = useState(getWindowSize());
     const [currentPage, setCurrentPage] = useState(0);
     const [dataPerPage] = useState(10);
-    const {people, fetchPeople, count} = usePeopleStore();
+    const {people, fetchPeople, count, isLoading, errors} = usePeopleStore();
+
+    console.log(currentPage)
+    console.log(people)
 
     const totalPages = Math.ceil(count / dataPerPage)
 
@@ -42,26 +45,26 @@ export default function People() {
 
     return (
         <>
-            <div className="App">
-                <h1 className={styles.title}>Список персон из "Звездных войн"</h1>
+            <section className={styles.people}>
+                <h1 className={`title ${styles["people__title"]}`}>Список персон из "Звездных войн"</h1>
                 <SearchForm />
                 {
-                    // isLoading ? (<Loading />) :
-                    // errors ? (<p>Errors: {errors}</p>) :
+                    isLoading ? (<Loading />) :
+                        // errors ? (<p>Errors: {errors}</p>) :
 
-                    <ul>
-                        {
-                            people && people.map(person => {
-                                return (
-                                    <PersonCard person={person} key={person.name} />
-                                )
-                            })
+                        <ul className={styles["people__list"]}>
+                            {
+                                people && people.map(person => {
+                                    return (
+                                        <PersonCard person={person} key={person.name} />
+                                    )
+                                })
 
-                        }
-                    </ul>
+                            }
+                        </ul>
 
                 }
-            </div>
+            </section>
             <ReactPaginate
                 breakLabel="..."
                 marginPagesDisplayed={windowSize.innerWidth >= 768 ? 4 : 2}

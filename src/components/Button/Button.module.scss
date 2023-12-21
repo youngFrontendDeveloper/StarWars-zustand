@@ -11,16 +11,16 @@
   cursor: pointer;
   overflow: hidden;
 
-  &::after {
-    background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, .5), transparent);
-    content: "";
-    height: 100%;
-    left: -100%;
-    position: absolute;
-    top: 0;
-    transition: left .5s;
-    width: 100%;
-  }
+  //&::after {
+  //  background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, .5), transparent);
+  //  content: "";
+  //  height: 100%;
+  //  left: -100%;
+  //  position: absolute;
+  //  top: 0;
+  //  transition: left .5s;
+  //  width: 100%;
+  //}
 }
 
 .btn--bg-red {
@@ -28,7 +28,10 @@
 }
 
 .button:hover {
-  &::after {
-    left: 100%;
-  }
+  position: relative;
+  top: -2px;
+  box-shadow: 0 0 3px 0 variable.$color-box-shadow;
+  //&::after {
+  //  left: 100%;
+  //}
 }

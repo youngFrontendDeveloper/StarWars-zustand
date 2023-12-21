@@ -1,13 +1,17 @@
 @use "../../styles/variables" as variable;
 
-.title {
-  width: 100%;
-  font-size: 30px;
-  margin-bottom: 40px;
-  text-align: center;
-  color: variable.$color-title;
-  text-wrap: balance;
+.people {
+  min-height: 90vh;
 }
+
+.people__title {
+  margin-bottom: 35px;
+}
+//
+//.people__list {
+//  list-style-type: none;
+//
+//}
 
 .navigationButtons {
   display: flex;
@@ -22,14 +26,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   font-size: 15px;
-  margin: 8px;
-  padding: 2px;
-  border: 1px solid #151515;
+  margin: 5px;
+  border: 1px solid variable.$color-text;
   border-radius: 5px;
-  color: #161616;
+  color: variable.$color-text;
   cursor: pointer;
 
   @media screen and (min-width: variable.$width-lg) {
@@ -41,8 +44,9 @@
 
 .navigationButtons a:hover {
   position: relative;
-  top: -2px;
-  box-shadow: 0 0 2px 0 variable.$color-box-shadow;
+  top: -1px;
+  box-shadow: 0 0 3px 0 variable.$color-box-shadow;
+
 }
 
 .navigationActive a {
@@ -52,6 +56,12 @@
 }
 
 .navigationDisabled a {
-  color: grey;
-  background-color: grey;
+  color: variable.$color-text;
+  background-color: rgba(128, 128, 128, 0.3);
+
+  &:hover {
+    position: static;
+    box-shadow: none;
+    cursor: auto;
+  }
 }
