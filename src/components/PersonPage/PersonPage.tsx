@@ -44,7 +44,7 @@ export default function PersonPage() {
                     >Родная планета:</span> <Link to={person?.homeworld} target="_blank" className={styles["person__link"]}>{person?.homeworld}</Link></li>
                     <li className={styles["person__item"]}><span
                         className={styles["person__span"]}
-                    >Вид:</span> {person?.species}</li>
+                    >Вид:</span> <Link to={person?.species} target="_blank" className={styles["person__link"]}>{person?.species}</Link></li>
                     <li className={styles["person__item"]}><span
                         className={styles["person__span"]}
                     >URL:</span> <Link to={person?.url} target="_blank" className={styles["person__link"]}>{person?.url}</Link></li>
